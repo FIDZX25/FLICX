@@ -1,0 +1,383 @@
+body {
+  margin: 0;
+  font-family: 'Netflix Sans', Arial, Helvetica, sans-serif;
+  background-color: #222;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Hilangkan efek fokus biru & tap highlight di HP */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a,
+button {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.navbar-menu li a:focus,
+.navbar-toggle:focus {
+  outline: none;
+}
+
+/* Header / Navbar wrapper */
+header {
+  background-color: #222;
+  border-bottom: 1px solid #222;
+  box-shadow: 0 6px 24px -8px #000, 0 1.5px 0 #222;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 12px;
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), transparent);
+  pointer-events: none;
+  z-index: 9;
+}
+
+/* Navbar container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* Logo */
+.navbar-logo img {
+  height: 40px;
+}
+
+/* Menu Desktop */
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-menu li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 400;
+  position: relative;
+  transition: transform 0.1s;
+}
+
+.navbar-menu li a:hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background-color: red;
+  animation: underline 0.3s forwards;
+}
+
+.navbar-menu li a:active {
+  transform: scale(0.95);
+}
+
+@keyframes underline {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Burger button */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.navbar-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  display: block;
+  border-radius: 3px;
+}
+
+.navbar-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Slider Section */
+.slider-container {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.mySwiper {
+  width: 100%;
+  height: auto;
+}
+
+.mySwiper .swiper-slide {
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.mySwiper .swiper-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Pagination bullet custom */
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 0.6;
+  border-radius: 50%;
+  margin: 0 4px;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: red !important;
+  opacity: 1;
+  transform: scale(1.3);
+  box-shadow: 0 0 8px red;
+}
+
+/* Responsive Sizes */
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: flex;
+  }
+
+  .navbar-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+    background-color: #111;
+    transform: translateY(-20px);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .navbar-menu.show {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+    animation: slideDown 0.3s ease forwards;
+  }
+
+  .navbar-menu li {
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Improve spacing between section title and slider */
+.trending-slider-section {
+  margin: 1.5rem auto 0 auto;
+  max-width: 1200px;
+  padding: 0 1rem 1.2rem 1rem;
+}
+.section-title {
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* --- Swiper Slides & Daftar Film (seragam) --- */
+.trending-slider-section .swiper-slide,
+.film-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 180px;
+}
+
+/* Responsive poster width */
+@media (max-width: 900px) {
+  .trending-slider-section .swiper-slide, .film-item { width: 140px; }
+}
+@media (max-width: 600px) {
+  .trending-slider-section .swiper-slide, .film-item { width: 110px; }
+}
+
+/* --- Poster Container --- */
+.poster-container {
+  width: 100%;
+  aspect-ratio: 2/3; /* Selalu rasio poster */
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  position: relative;
+  transition: transform 0.26s;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.poster-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* Selalu penuh, crop sedikit jika perlu */
+  display: block;
+  border-radius: inherit;
+  background: #111;
+}
+.poster-container:hover {
+  transform: scale(1.05);
+}
+
+/* --- Overlay & Tombol Tonton --- */
+.poster-container .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.55);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 1;
+}
+/* ... CSS kamu sebelumnya tetap utuh di sini ... */
+
+/* Bagian penting untuk tombol Tonton */
+.poster-container .watch-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  padding: 0.45rem 1.35rem;
+  background: red;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.45);
+  cursor: pointer;
+  transition: opacity 0.3s, transform 0.2s;
+}
+
+/* Tetap munculkan tombol saat hover (opsional) */
+.poster-container:hover .overlay,
+.poster-container:focus-within .overlay {
+  opacity: 1;
+}
+.poster-container:hover .watch-btn,
+.poster-container:focus-within .watch-btn {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1.04);
+}
+
+/* Class .show dari JavaScript agar tombol tampil saat klik poster */
+.watch-btn.show {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translate(-50%, -50%) scale(1.04);
+}
+
+/* Optional: sembunyikan tombol secara manual */
+.hidden {
+  display: none;
+}
+
+/* --- Judul Film di Bawah Poster --- */
+.film-title {
+  margin-top: 0.42rem;
+  margin-bottom: 0.7rem;
+  font-size: 1.08rem;
+  color: #fff;
+  text-align: center;
+  font-weight: 500;
+  width: 100%;
+  line-height: 1.32;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  /* Multi-baris */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;  /* Maksimal 2 baris, lebih dari itu ... */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+@media (max-width: 900px) {
+  .film-title { font-size: 1rem; }
+}
+@media (max-width: 600px) {
+  .film-title { font-size: 0.92rem; }
+}
+
+/* --- Daftar Film Grid --- */
+.film-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  justify-items: center;
+}
+@media (max-width: 900px) {
+  .film-list { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+}
+@media (max-width: 600px) {
+  .film-list { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* --- Swiper custom --- */
+.swiper {
+  width: 100%;
+  overflow: hidden;
+}
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: rgba(255,255,255,0.3);
+  opacity: 0.6;
+  border-radius: 50%;
+  margin: 0 4px;
+  transition: all 0.3s;
+}
+.swiper-pagination-bullet-active {
+  background: red !important;
+  opacity: 1;
+  transform: scale(1.3);
+  box-shadow: 0 0 8px red;
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #111;
+}

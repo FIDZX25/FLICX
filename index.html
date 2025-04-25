@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flicx</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="navbar-logo">
+        <img src="LOGO.png" alt="Netflix Logo" />
+      </div>
+      <button class="navbar-toggle" onclick="toggleNavbar()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="navbar-menu">
+        <li><a href="#" class="active">Beranda</a></li>
+        <li><a href="#">Serial TV</a></li>
+        <li><a href="#">Film</a></li>
+        <li><a href="#">Baru dan Populer</a></li>
+        <li><a href="#">Daftar Saya</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Slider Section -->
+  <section class="slider-container">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="Slide1.jpg" alt="Film 1" /></div>
+        <div class="swiper-slide"><img src="Slide2.jpg" alt="Film 2" /></div>
+        <div class="swiper-slide"><img src="Slide3.jpg" alt="Film 3" /></div>
+        <div class="swiper-slide"><img src="Slide4.png" alt="Film 4" /></div>
+        <div class="swiper-slide"><img src="Slide5.jpg" alt="Film 5" /></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <!-- Slider Film Trending -->
+  <section class="trending-slider-section">
+    <h2 class="section-title">Film Trending</h2>
+    <div class="swiper trendingSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide movie-item">
+          <div class="poster-container">
+            <img src="Poster Pengepungan Di Bukit Duri.jpeg" alt="Film Trending 1">
+              <div class="overlay"></div>
+              <button class="watch-btn">Tonton</button>
+          </div>
+          <div class="film-title">Pengepungan di Bukit Duri</div>
+        </div>
+        <div class="swiper-slide movie-item">
+          <div class="poster-container">
+            <img src="Poster Jumbo.jpg" alt="Film Trending 2">
+            <div class="overlay"></div>
+            <button class="watch-btn">Tonton</button>
+          </div>
+          <div class="film-title">Jumbo</div>
+        </div>
+        <div class="swiper-slide movie-item">
+          <div class="poster-container">
+            <img src="Poster Rumah Untuk Alie.jpg" alt="Film Trending 3">
+            <div class="overlay"></div>
+            <button class="watch-btn">Tonton</button>
+          </div>
+          <div class="film-title">Rumah Untuk Alie</div>
+        </div>
+        <div class="swiper-slide movie-item">
+          <div class="poster-container">
+            <img src="Poster Pabrik Gula.jpg" alt="Film Trending 4">
+            <div class="overlay"></div>
+            <button class="watch-btn">Tonton</button>
+          </div>
+          <div class="film-title">Pabrik Gula</div>
+        </div>
+        <!-- Tambahkan sesuai kebutuhan -->
+      </div>
+    </div>
+  </section>
+  
+  <section class="trending-slider-section">
+  <h2 class="section-title">Series Trending</h2>
+  <div class="swiper seriesTrendingSwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide series-item">
+        <div class="poster-container">
+          <img src="Poster Bad Guys.jpg" alt="Series Trending 1">
+          <div class="overlay"></div>
+          <button class="watch-btn">Tonton</button>
+        </div>
+        <div class="film-title">Bad Guys</div>
+      </div>
+      <div class="swiper-slide series-item">
+        <div class="poster-container">
+          <img src="Poster Zona Merah.jpg" alt="Series Trending 2">
+          <div class="overlay"></div>
+          <button class="watch-btn">Tonton</button>
+        </div>
+        <div class="film-title">Zona Merah</div>
+      </div>
+      <div class="swiper-slide series-item">
+        <div class="poster-container">
+          <img src="Poster Scandal3.jpg" alt="Series Trending 3">
+          <div class="overlay"></div>
+          <button class="watch-btn">Tonton</button>
+        </div>
+        <div class="film-title">Scandal 3</div>
+      </div>
+      <!-- Tambahkan series lainnya -->
+    </div>
+  </div>
+</section>
+
+<!-- Daftar Film -->
+<section class="trending-slider-section daftar-film-section">
+    <h2 class="section-title">Daftar Film</h2>
+    <div class="film-list">
+
+    <div class="film-item">
+      <div class="poster-container">
+        <img src="Poster Agak Laen.jpeg" alt="Agak Laen">
+       <div class="overlay"></div>
+       <a class="watch-btn" href="film.html?judul=Agak+Laen&genre=Komedi&video=https%3A%2F%2Fwww.dropbox.com%2Fscl%2Ffi%2Fpemyhrku2aq5vo7y9prcz%2Ffilmku1.mp4%3Fraw%3D1&desc=Pasar+malam+yang+menyeramkan+berubah+menjadi+panggung+komedi+dan+horor.&rating=7.8%2F10&durasi=1+jam+43+menit&tahun=2024&negara=Indonesia&sutradara=Muhadkly+Acho&pemain=Rahman%2C+Indra+Jegel%2C+Boris+Bokir">Tonton</a>
+       </div>
+      <div class="film-title">Agak Laen
+      </div>
+     </div>
+
+      <div class="film-item">
+        <div class="poster-container">
+          <img alt="Kupu Kupu Kertas" class="film-poster" src="Poster Kupu Kupu Kertas.jpeg"/>
+          <div class="overlay"></div>
+          <a class="watch-btn" href="film.html?judul=Vina%20Sebelum%207%20Hari&video=https%3A%2F%2Ffilemoon.to%2Fe%2Fvinasebelum7hari%2Fvideo" target="_blank">Tonton</a>
+        </div>
+        <div class="film-title">Kupu Kupu Kertas</div>
+      </div>
+
+      <div class="film-item">
+        <div class="poster-container">
+          <img alt="Kang Mak Peek Mak" class="film-poster" src="Poster Kang Mak.jpeg"/>
+          <div class="overlay"></div>
+          <a class="watch-btn" href="film.html?judul=Kang%20Mak%20Peek%20Mak&video=https%3A%2F%2Ffilemoon.to%2Fe%2Fkangmakpeekmak%2Fvideo" target="_blank">Tonton</a>
+        </div>
+        <div class="film-title">Kang Mak Peek Mak</div>
+      </div>
+
+      <div class="film-item">
+        <div class="poster-container">
+          <img alt="Badarawuhi Di Desa Penari" class="film-poster" src="Poster Badarawuhi.jpeg"/>
+          <div class="overlay"></div>
+          <a class="watch-btn" href="film.html?judul=Badarawuhi%20Di%20Desa%20Penari&video=https%3A%2F%2Ffilemoon.to%2Fe%2Fbadarawuhididesapenari%2Fvideo" target="_blank">Tonton</a>
+        </div>
+        <div class="film-title">Badarawuhi Di Desa Penari</div>
+      </div>
+
+      <div class="film-item">
+        <div class="poster-container">
+          <img alt="Siksa Kubur" class="film-poster" src="Poster Siksa Kubur.png"/>
+          <div class="overlay"></div>
+          <a class="watch-btn" href="film.html?judul=Siksa%20Kubur&video=https%3A%2F%2Ffilemoon.to%2Fe%2Fjudulfilm%2Fvideo" target="_blank">Tonton</a>
+        </div>
+        <div class="film-title">Siksa Kubur</div>
+      </div>
+
+      <div class="film-item">
+        <div class="poster-container">
+          <img alt="Bila Esok Ibu Tiada" class="film-poster" src="Poster Bila Esok Ibu Tiada.jpeg"/>
+          <div class="overlay"></div>
+          <a class="watch-btn" href="film.html?judul=Bila%20Esok%20Ibu%20Tiada&video=https%3A%2F%2Ffilemoon.to%2Fe%2Fjudulfilm%2Fvideo" target="_blank">Tonton</a>
+        </div>
+        <div class="film-title">Bila Esok Ibu Tiada</div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; Website Ini Di Buat Oleh Fidzx</p>
+  </footer>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
